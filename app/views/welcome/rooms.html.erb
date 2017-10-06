@@ -1,0 +1,7 @@
+<h1>Rooms:</h1>
+<% @rooms.each do |room| %>
+<%= image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkDvfdeYv1L3S_MXxynBucD3Osy_XSCdX2VI_-LfBOfUmAssSe") %> <br>
+	Room: <%= room.title %> <br>
+	Description: <%= room.description %><br>
+	Price: $<%= room.price_per_night %><br>
+<% end %><br>
