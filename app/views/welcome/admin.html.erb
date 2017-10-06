@@ -1,0 +1,10 @@
+<h1>Admin</h1>
+<%= link_to('Logout', destroy_admin_session_path, method: :delete) %>
+<h3>Enquiries:</h3>
+<% @enquiries.each do |enquiry| %>
+	Enquiry Id: <%= enquiry.id %> <br>
+	Enquiry: <%= enquiry.name %> <br>
+	Email: <%= enquiry.email %> <br>
+	Phone: <%= enquiry.phone %> <br>
+	Message: <%= enquiry.message %><br>
+<% end %><br>
