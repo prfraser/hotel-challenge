@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
 
     respond_to do |format|
       if @enquiry.save
-        format.html { redirect_to root_path, notice: 'Enquiry was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Enquiry was successfully submitted.' }
       else
         format.html { render :contact }
         format.json { render json: @enquiry.errors, status: :unprocessable_entity }
@@ -22,7 +22,7 @@ class WelcomeController < ApplicationController
     end
 	end
 
-	def rooms
+	def guestrooms
 		@rooms = Room.all
 	end
 
@@ -36,6 +36,6 @@ class WelcomeController < ApplicationController
 
   private
 	  def enquiry_params
-      params.require(:enquiry).permit(:name, :email, :phone, :message)
+      params.require(:enquiry).permit(:name, :email, :phone, :message, :room)
     end
 end
