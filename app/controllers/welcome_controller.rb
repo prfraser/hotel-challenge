@@ -11,9 +11,11 @@ class WelcomeController < ApplicationController
 
 	def enquiry
 		@enquiry = Enquiry.new(enquiry_params)
+		@admin = Admin.first
 
     respond_to do |format|
       if @enquiry.save
+      	AdminNotifierMailer.send_notice_email(@admin).deliver
         format.html { redirect_to root_path, notice: 'Enquiry was successfully submitted.' }
       else
         format.html { render :contact }
